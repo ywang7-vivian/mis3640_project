@@ -28,14 +28,14 @@ We will use Yelp app as a reference for the address and the type of restaurants.
 
 ### 4. Project schedule: You have 8 weeks (roughly) to finish the project. Sketch out a rough schedule for completing the project. Depending on your project, you may be able to do this in great specificity or you may only be able to give a broad outline. Additionally, longer projects come with increased uncertainty, and this schedule will likely need to be refined along the way.
 
-**Week 1:** Collect restaurants’ data (location, tel-number, recommended dish)
-**Week 2:** Clean all the data and document into the dataset
-**Week 3:** Start to build the function for customers to customize their preference
-**Week 4:** Continue to build the function for customers to customize their preference
-**Week 5:** Build another function for customers to rank the restaurants they have visited
-**Week 6:** Start to build a draft website and build in the function
-**Week 7:** Ask for feedback and improve for better UI and UX
-**Week 8:** If have time, we will build another function for restaurants to update their recommended dishes, and create a community that customers can upload their recommendations 
+* **Week 1:** Collect restaurants’ data (location, tel-number, recommended dish)
+* **Week 2:** Clean all the data and document into the dataset
+* **Week 3:** Start to build the function for customers to customize their preference
+* **Week 4:** Continue to build the function for customers to customize their preference
+* **Week 5:** Build another function for customers to rank the restaurants they have visited
+* **Week 6:** Start to build a draft website and build in the function
+* **Week 7:** Ask for feedback and improve for better UI and UX
+* **Week 8:** If have time, we will build another function for restaurants to update their recommended dishes, and create a community that customers can upload their recommendations 
 
 ### 5. Collaboration plan: How do you plan to collaborate with your teammates on this project? Will you split tasks up, complete them independently, and then integrate? Will you pair program the entire thing? Make sure to articulate your plan for successfully working together as a team. This might also include information about any software development methodologies you plan to use (e.g. agile development). Make sure to make clear why you are choosing this particular organizational structure.
 
