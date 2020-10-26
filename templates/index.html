@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Page title goes here</title>
+
+    <style>
+        body {
+            text-align: center
+        }
+
+        table {
+            margin-left: 15%;
+            margin-right: 15%;
+        }       
+    </style>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Random Restaurant </h1>
+    <form method="POST" name="random_restaurant">
+    <table style="width:500px;margin-left:auto;margin-right:auto">
+        <tr>
+            <td>Dish Type: <select name="dishType" id="dishType">
+                    <option>Anything</option>
+                    <option>Asian</option>
+                    <option>Japanese</option>
+                </select></td>
+            <td>Location: <input type="text" name="user_location" id="user_location" /></td>
+            <td>Distance: <input type="text" name="distance" id="distance" value = 10 /></td>
+        </tr>
+        <tr>
+            <td colspan = 3><p><input type="submit" value="Start Your Journey"></td>
+        </tr>
+
+    </table>
+    </form>
+    
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{text-align:center}
+        #container {
+            position: fixed;
+            /* Sit on top of the page content */
+            width: 100%;
+            /* Full width (cover the whole page) */
+            height: 100%;
+            /* Full height (cover the whole page) */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black background with opacity */
+            z-index: 2;
+            /* Specify a stack order in case you're using a different order for other elements */
+            vertical-align: middle;
+        }
+
+        #video {
+            margin-top: 10%;
+        }
+        /* #result {
+            display:none
+        } */
+    </style>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+
+    <script>
+        // $(function(){
+        //     $('#video').bind('ended', function(){
+        //         $(this).parent().fadeOut()
+        //         $('#result').fadeIn()
+        //     });
+        // });
+    </script>
+    
+</head>
+
+<body>
+    <!-- <div id="container">
+        <video width="500" height="400" id="video" autoplay muted>
+            <source src="magic.mp4" type="video/mp4"></video>
+
+    </div> -->
+    <div id = "result">
+        <p>Name: {{rest_name}}</p>
+        <p>Address:{{rest_add}}</p>
+    </div>
+</body>
+
+</html>
