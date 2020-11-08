@@ -15,10 +15,15 @@ def random_restaurant():
     if request.method == 'POST':
         user_location = request.form['user_location']
         distance = float(request.form['distance'])
-        restaurant = random(user_location,distance)
-        rest_name = restaurant[0]
-        rest_add = restaurant[1]
-        return render_template('restaurant_result.html',rest_name = rest_name, rest_add = rest_add)
-    return render_template('index.html')
+        dishType = request.form['dishType']
+        try:
+            restaurant = random(user_location,dishType,distance)
+            rest_name = restaurant[0]
+            rest_add = restaurant[1][0]
+            rest_num = restaurant[1][1]
+            return render_template('restaurant_result.html',rest_name = rest_name, rest_add = rest_add,rest_num = rest_num,dish_type = dishType)
+        except:
+            return render_template('index.html',error = True)
+    return render_template('index.html',error=None)
 
 
