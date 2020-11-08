@@ -9,6 +9,7 @@ import random
 MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
 MAPQUEST_API_KEY = "1n2jcreY3jYHR3OY9YuCqFTIuFDlt2lB"
 
+
 def get_filename(dishType):
     filename = "Restaurants/Restaurants_" + dishType + ".csv"
     return filename
@@ -82,7 +83,7 @@ def filter_distance(rest_list, user, dist=10):
         rest_address = restaurant[2] + ', ' + \
             restaurant[3] + ', '+restaurant[4]
         rest_num = restaurant[5]
-        rest_location = (float(restaurant[6]),float(restaurant[7]))
+        rest_location = (float(restaurant[6]), float(restaurant[7]))
         rest_dist = get_distance(rest_location, user_location)
         if rest_dist < dist:
             if rest_name in rest_dict1:
@@ -91,7 +92,7 @@ def filter_distance(rest_list, user, dist=10):
                     rest_dict2[rest_name] = rest_address
             else:
                 rest_dict1[rest_name] = rest_dist
-                rest_dict2[rest_name] = (rest_address,rest_num)
+                rest_dict2[rest_name] = (rest_address, rest_num)
     return rest_dict2
 
 
@@ -105,19 +106,19 @@ def random_select(rest_dict):
     return restaurant, info
 
 
-def random_restaurant(user,dishType = "All",dist = 10):
+def random_restaurant(user, dishType="All", dist=10):
     """
     Takes in the location of user, default distance is 10 km, and returns a random restaurant and address
     """
     filename = get_filename(dishType)
     rest_list = read_csv(filename)
-    rest_dict = filter_distance(rest_list, user, dist = dist)
+    rest_dict = filter_distance(rest_list, user, dist=dist)
     restaurant = random_select(rest_dict)
     return restaurant
 
 
 def main():
-    print(random_restaurant('Jamaica Plain, MA, 02130',"American"))
+    print(random_restaurant('Jamaica Plain, MA, 02130', "Gluten_Free"))
     # print(read_csv(get_filename("American")))
 
 

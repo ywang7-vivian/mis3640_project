@@ -23,7 +23,7 @@
 
 <body>
     <h1>Random Restaurant </h1>
-    <form method="POST" name="random_restaurant">
+    <form method="POST" name="random_restaurant" action = '/nearest'>
     <table style="width:500px;margin-left:auto;margin-right:auto">
         <tr>
             <td>Dish Type: <select name="dishType" id="dishType">
@@ -80,7 +80,7 @@
     </form>
 
     {% if error %}
-    <p style="color: red">There is no restuarnat with this dish type nearby.</p>
+    <p style="color: red">Please enter your location.</p>
     {% endif %}
     
     
