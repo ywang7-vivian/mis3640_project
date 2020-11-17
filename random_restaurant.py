@@ -7,7 +7,11 @@ import math
 import random
 
 MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
+<<<<<<< Updated upstream
 MAPQUEST_API_KEY = "dqTfZAklO1Dgsgl57uQLVuoB5OABZXxp"
+=======
+MAPQUEST_API_KEY = "nd8A9WGP8NHkXh4RlGcCY33pQW7vhGkG"
+>>>>>>> Stashed changes
 
 
 def get_filename(dishType):
