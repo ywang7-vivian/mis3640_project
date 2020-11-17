@@ -66,7 +66,6 @@ def get_lat_long(place_name):
     params = urllib.parse.urlencode(
         {'key': MAPQUEST_API_KEY, 'location': place_name})
     url = MAPQUEST_BASE_URL + "?" + params
-    print(url)
     LatLng = get_json(url)["results"][0]["locations"][0]['displayLatLng']
     return LatLng['lat'], LatLng['lng']
 
@@ -119,9 +118,9 @@ def random_restaurant(user, dishType="All", dist=10):
 
 
 def main():
-    # print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
+    print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
     # print(read_csv(get_filename("American")))
-    print(get_lat_long("Jamaica Plain"))
+    # print(get_lat_long("Jamaica Plain"))
 
 
 if __name__ == "__main__":
