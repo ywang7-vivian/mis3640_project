@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <p style = "text-align:left">
+    <p style="text-align:left">
         {%for i in range(0,len)%}
-        <div style = "margin-bottom:10px">
-        Name: {{listRest[i][0]}}<br>
-        Address: {{listRest[i][1][0]}}<br>
-        Tel: {{listRest[i][1][1]}}<br>
-        Distance: {{listRest[i][1][2]}} km<br>
-        Dish Type: {{listRest[i][1][3]}}<br>
-        </div>
-        {%endfor%}
-        
+    <div class="result">
+        <h3>{{listRest[i][0]}}</h3>
+        <P>{{listRest[i][1][3]}}</P>
+        <p>{{listRest[i][1][0]}}</p>
+        <p>{{listRest[i][1][1]}}</p>
+        <p>{{listRest[i][1][2]}} km</p>
+    </div>
+    {%endfor%}
+
     </p>
 </body>
+
 </html>

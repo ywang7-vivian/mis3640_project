@@ -29,20 +29,20 @@
             margin-top: 10%;
         }
 
-        #result {
-            display:none
+        .result {
+            visibility:hidden
         }
     </style>
     <script src="http://code.jquery.com/jquery.min.js"></script>
 
-    <script>
+    <!-- <script>
         $(function () {
             $('#video').on('ended', function () {
                 $(this).parent().fadeOut()
-                $('#result').fadeIn()
+                $('.result').fadeIn()
             });
         });
-    </script>
+    </script> -->
 
 </head>
 
@@ -52,11 +52,18 @@
             <source src={{url_for('static', filename='magic.mp4') }} type="video/mp4"></video>
 
     </div>
-    <div id="result">
+    <script>
+        document.getElementById("video").onended = function(){
+           document.getElementById("container").style.visibility = "hidden"
+           document.getElementById("results").style.visibility = "visible"
+        }
+    </script>
+    
+    <div class="result" id="results" style = "text-align:center">
         <h3>{{rest_name}}</h3>
-        <p style="color:black">{{dish_type}}</p>
-        <p style="color:black">{{rest_add}}</p>
-        <p style="color:black">{{rest_num}}</p>
+        <p>{{dish_type}}</p>
+        <p>{{rest_add}}</p>
+        <p>{{rest_num}}</p>
 
         <button><a href="{{ url_for('hello') }}">Go back to home page</a></button>
     </div>
