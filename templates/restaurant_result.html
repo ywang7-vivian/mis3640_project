@@ -37,7 +37,7 @@
 
     <script>
         $(function () {
-            $('#video').bind('ended', function () {
+            $('#video').on('ended', function () {
                 $(this).parent().fadeOut()
                 $('#result').fadeIn()
             });
@@ -53,7 +53,7 @@
 
     </div>
     <div id="result">
-        <p>{{rest_name}}</p>
+        <h3>{{rest_name}}</h3>
         <p style="color:black">{{dish_type}}</p>
         <p style="color:black">{{rest_add}}</p>
         <p style="color:black">{{rest_num}}</p>
