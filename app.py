@@ -34,34 +34,35 @@ def random_restaurant():
 
         if request.form['choice'] == "list":
             return redirect(url_for('result2'))
-
-        if dishType == "All":
-            while True:
-                try:
-                    dishType = random.choice(typeList)
-                    session['dishType'] = dishType
-                    restaurant = random_rest(user_location, dishType, distance)
-                    session['restaurant'] = restaurant
-                    return redirect(url_for('result'))
-                except:
-                    pass
-
-        try:
-            restaurant = random_rest(user_location, dishType, distance)
-            session['restaurant'] = restaurant
-            return redirect(url_for('result'))
-        except IndexError:
-            return render_template('restaurant_error.html')
+        
+        return redirect(url_for('result'))
 
 
 @app.route('/random_restaurant', methods=['GET', 'POST'])
 def result():
     if request.method == 'GET':
-        restaurant = session.get('restaurant', None)
+        user_location = session.get('user_location',None)
+        distance = session.get('distance',None)
+        dishType = session.get('dishType')
+        if dishType == "All":
+            while True:
+                try:
+                    # dishType = random.choice(typeList)
+                    dishType = 'American'
+                    restaurant = random_rest(user_location, dishType, distance)
+                    break
+                except:
+                    pass
+
+        try:
+            restaurant = random_rest(user_location, dishType, distance)
+        except IndexError:
+            return render_template('restaurant_error.html')
         rest_name = restaurant[0]
         rest_add = restaurant[1][0]
         rest_num = restaurant[1][1]
         dishType = session.get('dishType', None)
+        
         return render_template('restaurant_result.html', rest_name=rest_name, rest_add=rest_add, rest_num=rest_num, dish_type=dishType)
 
 

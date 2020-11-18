@@ -59,13 +59,14 @@
         }
     </script>
     
-    <div class="result" id="results" style = "text-align:center">
+    <div class="result" id="results" style = "text-align:center;margin-top:5%">
         <h3>{{rest_name}}</h3>
         <p>{{dish_type}}</p>
         <p>{{rest_add}}</p>
         <p>{{rest_num}}</p>
 
         <button><a href="{{ url_for('hello') }}">Go back to home page</a></button>
+        <button><a href="{{ url_for('result') }}">Random Again</a></button>
     </div>
 </body>
 
