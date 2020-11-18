@@ -73,7 +73,7 @@ def get_lat_long(place_name):
 def filter_distance(rest_list, user, dist=10):
     """
     filter the resturant based on the distance between the resturant and the user. Default distance is 10 km
-    rest_dict2: resturant with value equals address
+    rest_dict2: resturant with value equals a list of information
     """
     user_location = get_lat_long(user)
     rest_dict1 = dict()
@@ -89,11 +89,11 @@ def filter_distance(rest_list, user, dist=10):
             if rest_name in rest_dict1:
                 if rest_dist < rest_dict1[rest_name]:
                     rest_dict1[rest_name] = rest_dist
-                    rest_dict2[rest_name] = rest_address
+                    rest_dict2[rest_name] = (rest_address, rest_num)
             else:
                 rest_dict1[rest_name] = rest_dist
                 rest_dict2[rest_name] = (rest_address, rest_num)
-    return rest_dict2
+    return rest_dict1, rest_dict2
 
 
 def random_select(rest_dict):
@@ -112,15 +112,32 @@ def random_restaurant(user, dishType="All", dist=10):
     """
     filename = get_filename(dishType)
     rest_list = read_csv(filename)
-    rest_dict = filter_distance(rest_list, user, dist=dist)
+    rest_dict = filter_distance(rest_list, user, dist=dist)[1]
     restaurant = random_select(rest_dict)
     return restaurant
 
 
+def list_restaurant(user, dishType="All", dist=10):
+    """
+    Takes in the location of user, default distance is 10 km, and returns a list of all restaurants and their addresses
+    """
+    filename = get_filename(dishType)
+    rest_list = read_csv(filename)
+    distance = filter_distance(rest_list, user, dist=dist)[0]
+    rest_dict = filter_distance(rest_list, user, dist=dist)[1]
+    for rest in rest_dict:
+        info = list(rest_dict[rest])
+        dist = str(f"{distance[rest]:.2f}")
+        info.append(dist)
+        rest_dict[rest] = info
+    return rest_dict
+
+
 def main():
-    print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
+    # print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
     # print(read_csv(get_filename("American")))
     # print(get_lat_long("Jamaica Plain"))
+    print(list_restaurant('Jamaica Plain, MA, 02130', "American")['Common Ground'])
 
 
 if __name__ == "__main__":

@@ -25,13 +25,13 @@
 <body style="background-image: url({{url_for('static', filename='background.jpg') }});background-size:cover">
     <div style="margin:15% 20% auto 20%;padding-bottom:1.5%;background:rgba(255,255,255,0.7);border-radius: 25px;">
         <h1>Random Restaurant </h1>
-        <form method="POST" name="random_restaurant" action='/nearest'>
+        <form method="POST" name="random_restaurant" action='/random'>
             <table style="width:500px;margin-left:auto;margin-right:auto">
                 <tr>
                     <td>Dish Type: <select name="dishType" id="dishType" style="height:26px">
                             <option value="All">Anything</option>
                             <option value="American">American</option>
-                            <option value="Asian_Fusian">Asian Fusion</option>
+                            <option value="Asian_Fusion">Asian Fusion</option>
                             <option value="Barbeque">Barbeque</option>
                             <option value="Breakfast">Breakfast</option>
                             <option value="Burger">Burger</option>
@@ -73,6 +73,12 @@
                         </select></td>
                     <td>Location: <input type="text" name="user_location" id="user_location" /></td>
                     <td>Distance: <input type="text" name="distance" id="distance" value=10 /></td>
+                </tr>
+                <tr>
+                    <td colspan=3><input type="radio" id="choice" name="choice" value="one" checked>
+                        <label for="one">I am lucky today.</label>
+                        <input type="radio" id="choice" name="choice" value="list">
+                        <label for="list">List all options.</label></td>
                 </tr>
                 <tr>
                     <td colspan=3 style="padding-top:5%;padding-bottom: 2%;">
