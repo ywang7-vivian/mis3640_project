@@ -23,73 +23,73 @@
 </head>
 
 <body style="background-image: url({{url_for('static', filename='background.jpg') }});background-size:cover">
-    <div style = "margin:15% 20% auto 20%;background:rgba(255,255,255,0.5);border-radius: 25px;">
-    <h1>Random Restaurant </h1>
-    <form method="POST" name="random_restaurant" action='/nearest'>
-        <table style="width:500px;margin-left:auto;margin-right:auto">
-            <tr>
-                <td>Dish Type: <select name="dishType" id="dishType" style="height:26px">
-                        <option value="All">Anything</option>
-                        <option value="American">American</option>
-                        <option value="Asian_Fusian">Asian Fusion</option>
-                        <option value="Barbeque">Barbeque</option>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Burger">Burger</option>
-                        <option value="Cajun">Cajun</option>
-                        <option value="Caribbean">Caribbean</option>
-                        <option value="Chicken_and_Wings">Chicken_and_Wings</option>
-                        <option value="Chinese">Chinese</option>
-                        <option value="Drive_In">Drive_In</option>
-                        <option value="Ethnic">Ethnic</option>
-                        <option value="Family">Family</option>
-                        <option value="Fast_Food">Fast_Food</option>
-                        <option value="Food_Delivery">Food_Delivery</option>
-                        <option value="French">French</option>
-                        <option value="German">German</option>
-                        <option value="Gluten_Free">Gluten_Free</option>
-                        <option value="Greek">Greek</option>
-                        <option value="Hawaiian">Hawaiian</option>
-                        <option value="Healthy">Healthy</option>
-                        <option value="Hot_Dogs">Hot_Dogs</option>
-                        <option value="Indian_Pakistan">Indian_Pakistan</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Latin_American">Latin_American</option>
-                        <option value="Lebanese">Lebanese</option>
-                        <option value="Meditteranean">Meditteranean</option>
-                        <option value="Mexican">Mexican</option>
-                        <option value="Seafood">Seafood</option>
-                        <option value="Soup">Soup</option>
-                        <option value="Southern">Southern</option>
-                        <option value="Southwestern">Southwestern</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Tex-Mex">Tex-Mex</option>
-                        <option value="Thai">Thai</option>
-                        <option value="Vegan">Vegan</option>
-                        <option value="Vegitarian">Vegitarian</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                        <option value="Middle_Eastern">Middle_Eastern</option>
-                    </select></td>
-                <td>Location: <input type="text" name="user_location" id="user_location" /></td>
-                <td>Distance: <input type="text" name="distance" id="distance" value=10 /></td>
-            </tr>
-            <tr>
-                <td colspan=3 style="padding-top:5%">
-                    <input type="submit" value="Start Your Journey" id="btn">
-                </td>
-            </tr>
+    <div style="margin:15% 20% auto 20%;padding-bottom:1.5%;background:rgba(255,255,255,0.5);border-radius: 25px;">
+        <h1>Random Restaurant </h1>
+        <form method="POST" name="random_restaurant" action='/nearest'>
+            <table style="width:500px;margin-left:auto;margin-right:auto">
+                <tr>
+                    <td>Dish Type: <select name="dishType" id="dishType" style="height:26px">
+                            <option value="All">Anything</option>
+                            <option value="American">American</option>
+                            <option value="Asian_Fusian">Asian Fusion</option>
+                            <option value="Barbeque">Barbeque</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Burger">Burger</option>
+                            <option value="Cajun">Cajun</option>
+                            <option value="Caribbean">Caribbean</option>
+                            <option value="Chicken_and_Wings">Chicken_and_Wings</option>
+                            <option value="Chinese">Chinese</option>
+                            <option value="Drive_In">Drive_In</option>
+                            <option value="Ethnic">Ethnic</option>
+                            <option value="Family">Family</option>
+                            <option value="Fast_Food">Fast_Food</option>
+                            <option value="Food_Delivery">Food_Delivery</option>
+                            <option value="French">French</option>
+                            <option value="German">German</option>
+                            <option value="Gluten_Free">Gluten_Free</option>
+                            <option value="Greek">Greek</option>
+                            <option value="Hawaiian">Hawaiian</option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Hot_Dogs">Hot_Dogs</option>
+                            <option value="Indian_Pakistan">Indian_Pakistan</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Latin_American">Latin_American</option>
+                            <option value="Lebanese">Lebanese</option>
+                            <option value="Meditteranean">Meditteranean</option>
+                            <option value="Mexican">Mexican</option>
+                            <option value="Seafood">Seafood</option>
+                            <option value="Soup">Soup</option>
+                            <option value="Southern">Southern</option>
+                            <option value="Southwestern">Southwestern</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Tex-Mex">Tex-Mex</option>
+                            <option value="Thai">Thai</option>
+                            <option value="Vegan">Vegan</option>
+                            <option value="Vegitarian">Vegitarian</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                            <option value="Middle_Eastern">Middle_Eastern</option>
+                        </select></td>
+                    <td>Location: <input type="text" name="user_location" id="user_location" /></td>
+                    <td>Distance: <input type="text" name="distance" id="distance" value=10 /></td>
+                </tr>
+                <tr>
+                    <td colspan=3 style="padding-top:5%;padding-bottom: 2%;">
+                        <input type="submit" value="Start Your Journey" id="btn">
+                    </td>
+                </tr>
 
-        </table>
+            </table>
+
+        </form>
+
+        {% if error %}
+        <p style="color: red">Please enter your location.</p>
+        {% endif %}
+
     </div>
-    </form>
 
-    {% if error %}
-    <p style="color: red">Please enter your location.</p>
-    {% endif %}
-
-
-    </script>
 </body>
 
 </html>
