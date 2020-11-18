@@ -22,8 +22,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
-<body>
-    <h1 style="padding-top:13%; padding-bottom:1%">Random Restaurant </h1>
+<body style="background-image: url('background.jpg');background-size:cover">
+    <div style = "margin:15% 20% auto 20%;background:rgba(255,255,255,0.5);border-radius: 25px;">
+    <h1>Random Restaurant </h1>
     <form method="POST" name="random_restaurant" action='/nearest'>
         <table style="width:500px;margin-left:auto;margin-right:auto">
             <tr>
@@ -80,6 +81,7 @@
             </tr>
 
         </table>
+    </div>
     </form>
 
     {% if error %}
