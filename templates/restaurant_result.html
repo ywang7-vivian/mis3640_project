@@ -28,21 +28,22 @@
         #video {
             margin-top: 10%;
         }
-        /* #result {
+
+        #result {
             display:none
-        } */
+        }
     </style>
     <script src="http://code.jquery.com/jquery.min.js"></script>
 
     <script>
-        $(function(){
-            $('#video').bind('ended', function(){
+        $(function () {
+            $('#video').bind('ended', function () {
                 $(this).parent().fadeOut()
                 $('#result').fadeIn()
             });
         });
     </script>
-    
+
 </head>
 
 <body>
@@ -51,13 +52,13 @@
             <source src={{url_for('static', filename='magic.mp4') }} type="video/mp4"></video>
 
     </div>
-    <div id = "result">
-        <p>Name: {{rest_name}}</p>
-        <p>Address: {{rest_add}}</p>
-        <p>Dish Type: {{dish_type}}</p>
-        <p>Phone Number: {{rest_num}}</p>
+    <div id="result">
+        <p>{{rest_name}}</p>
+        <p style="color:black">{{dish_type}}</p>
+        <p style="color:black">{{rest_add}}</p>
+        <p style="color:black">{{rest_num}}</p>
 
-        <button><a href = "{{ url_for('hello') }}">Go back to home page</a></button>
+        <button><a href="{{ url_for('hello') }}">Go back to home page</a></button>
     </div>
 </body>
 
