@@ -33,10 +33,10 @@ def get_distance(restuarant, user):
     """
     calculates distance(km) using two sets of latitude and longitude
     """
-    lat1 = math.radians(restuarant[1])
-    lon1 = math.radians(restuarant[0])
-    lat2 = math.radians(user[1])
-    lon2 = math.radians(user[0])
+    lat1 = math.radians(restuarant[0])
+    lon1 = math.radians(restuarant[1])
+    lat2 = math.radians(user[0])
+    lon2 = math.radians(user[1])
     dlon = lon1 - lon2
     dlat = lat1 - lat2
     a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * \
@@ -161,9 +161,10 @@ def get_map(user_location,restaurant_location,size):
 def main():
     # print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
     # print(read_csv(get_filename("American")))
-    # print(get_lat_long("Jamaica Plain"))
     # print(list_restaurant('Jamaica Plain, MA, 02130', "American")['Common Ground'])
-    print(get_map((42.3097, -71.120796),[get_lat_long("150 Broadway, Chelsea, MA")],(1100,500)))
+    # print(get_map((42.3097, -71.120796),[get_lat_long("150 Broadway, Chelsea, MA")],(1100,500)))
+    print(get_distance((42.129046, -71.1015596),(42.310135, -71.113238)))
+
 
 
 if __name__ == "__main__":
