@@ -38,6 +38,38 @@
         }
     </style>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+
+    <script type="text/javascript">
+        var user = ["{{user[0]}}", "{{user[1]}}"];
+
+        window.onload = function() {
+            L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
+
+            var map = L.mapquest.map('map', {
+                center: user,
+                layers: L.mapquest.tileLayer('map'),
+                zoom: 10
+            });
+
+            L.marker(user, {
+                icon: L.mapquest.icons.marker({
+                    primaryColor: '#177767'
+                }),
+                draggable: false
+            }).bindPopup('Your Location').addTo(map);
+
+            L.marker(["{{location[0]}}", "{{location[1]}}"], {
+                icon: L.mapquest.icons.marker({
+                    primaryColor: '#FF0000'
+                }),
+                draggable: false
+            }).bindPopup('{{rest_name}}').addTo(map);
+
+
+        };
+    </script>
 </head>
 
 <body>
@@ -68,8 +100,7 @@
         <p style="padding-top:50px;color:#177767;font-size:large">Don't like this result? Take another try!</p>
         <button id="btn"><a href="{{ url_for('result') }}">Restart Your Journey</a></button><br>
 
-        <img src={{url}} alt="Map" style="margin-top: 20px;" />
-
+        <div id="map" style="width: 100%; height: 530px;margin-top: 20px;"></div>
     </div>
 
 

@@ -7,6 +7,44 @@
     <title>Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.6/dist/leaflet.markercluster.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.6/dist/MarkerCluster.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.6/dist/MarkerCluster.Default.css" />
+    <script type="text/javascript">
+        window.onload = function() {
+            L.mapquest.key = 'lYrP4vF3Uk5zgTiGGuEzQGwGIVDGuy24';
+
+            var map = L.mapquest.map('map', {
+                center: ["{{user[0]}}", "{{user[1]}}"],
+                layers: L.mapquest.tileLayer('map'),
+                zoom: 10
+            });
+
+            L.marker(["{{user[0]}}", "{{user[1]}}"], {
+                icon: L.mapquest.icons.marker({
+                    primaryColor: '#177767'
+                }),
+
+
+            }).bindPopup("restaurant").addTo(map);
+
+            "{%for i in range (0,len)%}"
+
+
+            L.marker(["{{location[i][0]}}", "{{location[i][1]}}"], {
+                icon: L.mapquest.icons.marker({
+                    symbol: "{{i+1}}"
+                }),
+            }).bindPopup("{{listRest[i][0]}}").addTo(map);
+
+            "{%endfor%}"
+
+
+        }
+    </script>
+    </script>
 </head>
 
 <body>
@@ -16,7 +54,7 @@
         <h1 style="color:white">Random Restaurant</h1>
 
     </div>
-    <img src={{url}} alt="Map" style="position:fixed;left:10px;top:90px;width:55%" />
+    <!-- <img src={{url}} alt="Map" style="position:fixed;left:10px;top:90px;width:55%" /> -->
     <div style="padding-top:70px;padding-left:60%">
         <ol class="result" style="text-align:left">
             {%for i in range(0,len)%}
@@ -35,6 +73,8 @@
 
             {%endfor%}
         </ol>
+
+        <div id="map" style="position:fixed;left:10px;top:70px;width:55%; height: 600px;margin-top: 20px;"></div>
     </div>
 
 </body>

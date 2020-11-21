@@ -63,10 +63,11 @@ def result():
         rest_num = restaurant[1][1]
         
         user = get_lat_long(user_location)
-        location = [get_lat_long(rest_add)]
-        url = get_map(user,location,(600,400))
+        location = get_lat_long(rest_add)
 
-        return render_template('restaurant_result.html', rest_name=rest_name, rest_add=rest_add, rest_num=rest_num, dish_type=dishType,url=url)
+        return render_template('restaurant_result.html', rest_name=rest_name, rest_add=rest_add, rest_num=rest_num, dish_type=dishType,user=user,location=location)
+        
+    
 
 
 @app.route('/list_restaurant', methods=['GET', 'POST'])
@@ -97,6 +98,6 @@ def result2():
         location = []
         for restaurant in listRestau:
             location.append(restaurant[1][2])
-        url = get_map(user,location,(800,600))
+        
 
-        return render_template('restaurant_list.html',len = len(listRestau),listRest=listRestau,url=url)
+        return render_template('restaurant_list.html',len = len(listRestau),listRest=listRestau,user=user,location=location)
