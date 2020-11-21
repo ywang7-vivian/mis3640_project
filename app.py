@@ -4,7 +4,7 @@ Simple "Hello, World" application using Flask
 
 from flask import Flask, request, render_template, redirect, url_for, session
 from random_restaurant import random_restaurant as random_rest
-from random_restaurant import list_restaurant
+from random_restaurant import list_restaurant,get_lat_long,get_map
 import random
 
 app = Flask(__name__)
@@ -61,9 +61,12 @@ def result():
         rest_name = restaurant[0]
         rest_add = restaurant[1][0]
         rest_num = restaurant[1][1]
-        dishType = session.get('dishType', None)
         
-        return render_template('restaurant_result.html', rest_name=rest_name, rest_add=rest_add, rest_num=rest_num, dish_type=dishType)
+        user = get_lat_long(user_location)
+        location = [get_lat_long(rest_add)]
+        url = get_map(user,location,(600,400))
+
+        return render_template('restaurant_result.html', rest_name=rest_name, rest_add=rest_add, rest_num=rest_num, dish_type=dishType,url=url)
 
 
 @app.route('/list_restaurant', methods=['GET', 'POST'])
@@ -88,6 +91,12 @@ def result2():
                     listRest[restaurant] = dictRest[rest_Type][restaurant]
         
         listRestau = list(listRest.items())
-        listRestau = sorted(listRestau, key = lambda x: x[1][2])
+        listRestau = sorted(listRestau, key = lambda x: x[1][3])
 
-        return render_template('restaurant_list.html',len = len(listRestau),listRest=listRestau)
+        user = get_lat_long(user_location)
+        location = []
+        for restaurant in listRestau:
+            location.append(restaurant[1][2])
+        url = get_map(user,location,(800,600))
+
+        return render_template('restaurant_list.html',len = len(listRestau),listRest=listRestau,url=url)

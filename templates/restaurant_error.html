@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <p>There is no restaurant nearby with your selection of dish type.</p>
+    <div id="header">
+
+        <button style="background:none;border:none;position:fixed;top:15px;left:15px"><a href="{{ url_for('hello') }}"><i class="fas fa-home" style="color:white;font-size:20px"></i></a></button>
+        <h1 style="color:white">Random Restaurant</h1>
+
+    </div>
+    <p style="padding-top:70px">There is no restaurant nearby with your selection of dish type.</p>
     <button><a href = "{{ url_for('hello') }}">Go back to home page</a></button>
 </body>
-</html>
 
+</html>

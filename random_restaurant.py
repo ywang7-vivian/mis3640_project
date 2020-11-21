@@ -7,6 +7,7 @@ import math
 import random
 
 MAPQUEST_BASE_URL = "http://www.mapquestapi.com/geocoding/v1/address"
+MAPQUEST_MAP_URL = "https://www.mapquestapi.com/staticmap/v5/map"
 MAPQUEST_API_KEY = "nd8A9WGP8NHkXh4RlGcCY33pQW7vhGkG"
 
 
@@ -73,6 +74,7 @@ def get_lat_long(place_name):
 def filter_distance(rest_list, user, dist=10):
     """
     filter the resturant based on the distance between the resturant and the user. Default distance is 10 km
+    rest_dict1: resturant with value equals distance between the resturant and the user
     rest_dict2: resturant with value equals a list of information
     """
     user_location = get_lat_long(user)
@@ -89,10 +91,10 @@ def filter_distance(rest_list, user, dist=10):
             if rest_name in rest_dict1:
                 if rest_dist < rest_dict1[rest_name]:
                     rest_dict1[rest_name] = rest_dist
-                    rest_dict2[rest_name] = (rest_address, rest_num)
+                    rest_dict2[rest_name] = (rest_address, rest_num,rest_location)
             else:
                 rest_dict1[rest_name] = rest_dist
-                rest_dict2[rest_name] = (rest_address, rest_num)
+                rest_dict2[rest_name] = (rest_address, rest_num,rest_location)
     return rest_dict1, rest_dict2
 
 
@@ -133,11 +135,35 @@ def list_restaurant(user, dishType="All", dist=10):
     return rest_dict
 
 
+def get_map(user_location,restaurant_location,size):
+    """
+    Takes in user's location, restaurant(s)' location, and the specfied size, returns a list of locations
+    user_location: latitude, longtitude
+    restaurant_location: a list of latitude, longtitude
+    """
+    user = f"{user_location[0]},{user_location[1]}"
+
+    restaurant=user+'|marker-start||'
+    for locat in restaurant_location:
+        restaurant+=f"{locat[0]},{locat[1]}|marker-{restaurant_location.index(locat)+1}||"
+    restaurant = restaurant[:-2]
+
+    mapSize = f"{size[0]},{size[1]}" 
+
+    params = urllib.parse.urlencode(
+        {'key':MAPQUEST_API_KEY, 'locations': restaurant,'size':mapSize})
+    url = MAPQUEST_MAP_URL + "?" + params
+    
+    return url
+    
+
+
 def main():
     # print(random_restaurant('Jamaica Plain, MA, 02130', "American"))
     # print(read_csv(get_filename("American")))
     # print(get_lat_long("Jamaica Plain"))
-    print(list_restaurant('Jamaica Plain, MA, 02130', "American")['Common Ground'])
+    # print(list_restaurant('Jamaica Plain, MA, 02130', "American")['Common Ground'])
+    print(get_map((42.3097, -71.120796),[get_lat_long("150 Broadway, Chelsea, MA")],(1100,500)))
 
 
 if __name__ == "__main__":

@@ -18,32 +18,26 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(23, 119, 103, 0.5);
             /* Black background with opacity */
             z-index: 2;
             /* Specify a stack order in case you're using a different order for other elements */
             vertical-align: middle;
         }
-
+        
         #video {
             margin-top: 10%;
         }
-
+        
         .result {
-            visibility:hidden
+            visibility: hidden
+        }
+        
+        #header {
+            visibility: hidden
         }
     </style>
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-
-    <!-- <script>
-        $(function () {
-            $('#video').on('ended', function () {
-                $(this).parent().fadeOut()
-                $('.result').fadeIn()
-            });
-        });
-    </script> -->
-
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
@@ -53,21 +47,32 @@
 
     </div>
     <script>
-        document.getElementById("video").onended = function(){
-           document.getElementById("container").style.visibility = "hidden"
-           document.getElementById("results").style.visibility = "visible"
+        document.getElementById("video").onended = function() {
+            document.getElementById("container").style.visibility = "hidden"
+            document.getElementById("results").style.visibility = "visible"
+            document.getElementById("header").style.visibility = "visible"
         }
     </script>
-    
-    <div class="result" id="results" style = "text-align:center;margin-top:5%">
-        <h3>{{rest_name}}</h3>
+    <div id="header">
+
+        <button style="background:none;border:none;position:fixed;top:15px;left:15px"><a href="{{ url_for('hello') }}"><i class="fas fa-home" style="color:white;font-size:20px"></i></a></button>
+        <h1 style="color:white">Random Restaurant</h1>
+
+    </div>
+    <div class="result" id="results" style="text-align:center;padding-top:70px">
+        <h2>{{rest_name}}</h2>
         <p>{{dish_type}}</p>
         <p>{{rest_add}}</p>
         <p>{{rest_num}}</p>
 
-        <button><a href="{{ url_for('hello') }}">Go back to home page</a></button>
-        <button><a href="{{ url_for('result') }}">Random Again</a></button>
+        <p style="padding-top:50px;color:#177767;font-size:large">Don't like this result? Take another try!</p>
+        <button id="btn"><a href="{{ url_for('result') }}">Restart Your Journey</a></button><br>
+
+        <img src={{url}} alt="Map" style="margin-top: 20px;" />
+
     </div>
+
+
 </body>
 
 </html>
