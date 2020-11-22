@@ -5,3 +5,5 @@ The project aims to Offer an alternative for people with decidophobia to find ou
 You can visit the link of final result [here](https://mis3640-random-restaurant.herokuapp.com/).
 
 Our proposal is [here](proposal.md).
+
+And you also can visit our project website [here](https://sites.google.com/babson.edu/mis3640-findyourrestaurant).
