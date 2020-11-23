@@ -31,7 +31,7 @@ def read_csv(filename):
 
 def get_distance(restuarant, user):
     """
-    calculates distance(km) using two sets of latitude and longitude
+    calculates distance (km) using two sets of latitude and longitude
     """
     lat1 = math.radians(restuarant[0])
     lon1 = math.radians(restuarant[1])
@@ -100,7 +100,7 @@ def filter_distance(rest_list, user, dist=10):
 
 def random_select(rest_dict):
     """
-    Random selects one restaurant, return name and address
+    Randomly selects one restaurant, returns name and address
     """
     rest_list = list(rest_dict)
     restaurant = random.choice(rest_list)
@@ -110,7 +110,7 @@ def random_select(rest_dict):
 
 def random_restaurant(user, dishType="All", dist=10):
     """
-    Takes in the location of user, default distance is 10 km, and returns a random restaurant and address
+    Takes in the location of the user, default distance is 10 km, and returns a random restaurant and address
     """
     filename = get_filename(dishType)
     rest_list = read_csv(filename)
