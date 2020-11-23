@@ -7,3 +7,5 @@
 💬 You can find a short introduction of our website [here](https://sites.google.com/babson.edu/mis3640-findyourrestaurant).
 
 ⭐ The final website is [here](https://mis3640-random-restaurant.herokuapp.com/).
+
+To run code, you can open command prompt and run flask or just open the website.
