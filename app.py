@@ -75,7 +75,7 @@ def result():
 
 @app.route('/list_restaurant', methods=['GET', 'POST'])
 def result2():
-    """Returns the result page of "List all options""""
+    """Returns the result page of "List all options"."""
     if request.method == 'GET':
         user_location = session.get('user_location',None)
         distance = session.get('distance',None)
