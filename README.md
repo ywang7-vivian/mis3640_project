@@ -1,7 +1,6 @@
 # Find Your Restaurant
 ![Website Home Page](https://github.com/ywang7-vivian/mis3640_project/blob/master/5.png)
-📚 Have you ever been in a situation where you couldn't decide which restaurant to eat at and spend forever looking for a restaurant only to try it and then regret it? Or have you wanted to try some small local restaurants but don't know where to find them? This website will solve this problem and decide FOR you. Based on a range of distance from you and a type of cuisine you want, or not, the website will generate a random restaurant for you to go try. 
-The project aims to Offer an alternative for people with decidophobia to find out what they want to eat every day.
+📚 Have you ever been in a situation where you couldn't decide which restaurant to eat at and spend forever looking for a restaurant only to try it and then regret it? Or have you wanted to try some small local restaurants but don't know where to find them? This website will solve this problem and decide FOR you. Based on a range of distance from you and a type of cuisine you want, or not, the website will generate a random restaurant for you to go try. This project aims to Offer an alternative for people with decidophobia to find out what they want to eat every day.
 
 🌱 Our proposal is [here](proposal.md).
 
