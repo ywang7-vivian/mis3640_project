@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>random_restaurant.py &#8212; Find Your Restaurant 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Find Your Restaurant’s documentation!" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Find Your Restaurant’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Find Your Restaurant 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">random_restaurant.py</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-random_restaurant">
+<span id="random-restaurant-py"></span><h1>random_restaurant.py<a class="headerlink" href="#module-random_restaurant" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="random_restaurant.filter_distance">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">filter_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rest_list</span></em>, <em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">dist</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.filter_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>filter the resturant based on the distance between the resturant and the user. Default distance is 10 km
+rest_dict1: resturant with value equals distance between the resturant and the user
+rest_dict2: resturant with value equals a list of address, tel_number, and (latitude, longtitude)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.get_distance">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">get_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">restuarant</span></em>, <em class="sig-param"><span class="n">user</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.get_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>calculates distance (km) using two sets of latitude and longitude</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.get_json">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">get_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.get_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a properly formatted URL for a JSON web API request, return
+a Python JSON object containing the response to that request.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.get_lat_long">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">get_lat_long</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">place_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.get_lat_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a place name or address, return a (latitude, longitude) tuple
+with the coordinates of the given place.
+See <a class="reference external" href="https://developer.mapquest.com/documentation/geocoding-api/address/get/">https://developer.mapquest.com/documentation/geocoding-api/address/get/</a>
+for Mapquest Geocoding  API URL formatting requirements.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.get_map">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">get_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user_location</span></em>, <em class="sig-param"><span class="n">restaurant_location</span></em>, <em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.get_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes in user’s location, restaurant(s)’ location, and the specfied size, returns a list of locations
+user_location: latitude, longtitude
+restaurant_location: a list of latitude, longtitude</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.list_restaurant">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">list_restaurant</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">dishType</span><span class="o">=</span><span class="default_value">'All'</span></em>, <em class="sig-param"><span class="n">dist</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.list_restaurant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes in the location of user, default distance is 10 km, and returns a list of all restaurants and their addresses</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.random_restaurant">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">random_restaurant</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">dishType</span><span class="o">=</span><span class="default_value">'All'</span></em>, <em class="sig-param"><span class="n">dist</span><span class="o">=</span><span class="default_value">10</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.random_restaurant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes in the location of the user, default distance is 10 km, and returns a random restaurant and address</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.random_select">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">random_select</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rest_dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.random_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Randomly selects one restaurant, returns name and address</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="random_restaurant.read_csv">
+<code class="sig-prename descclassname">random_restaurant.</code><code class="sig-name descname">read_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#random_restaurant.read_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>reads a csv file and returns a list</p>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-app">
+<span id="app-py"></span><h1>app.py<a class="headerlink" href="#module-app" title="Permalink to this headline">¶</a></h1>
+<p>Simple “Hello, World” application using Flask</p>
+<dl class="py function">
+<dt id="app.hello">
+<code class="sig-prename descclassname">app.</code><code class="sig-name descname">hello</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.hello" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Home Page</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.random_restaurant">
+<code class="sig-prename descclassname">app.</code><code class="sig-name descname">random_restaurant</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.random_restaurant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets user’s inputs, checks if the user has entered the location, and redirects based on user’s choice of “I am Lucky today” or “List all options”.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.result">
+<code class="sig-prename descclassname">app.</code><code class="sig-name descname">result</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result page of “I am lucky today” or redirects to error page if there is no restaurant nearby</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app.result2">
+<code class="sig-prename descclassname">app.</code><code class="sig-name descname">result2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app.result2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result page of “List all options”.</p>
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">random_restaurant.py</a></li>
+<li><a class="reference internal" href="#module-app">app.py</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to Find Your Restaurant’s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to Find Your Restaurant’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Find Your Restaurant 1.0.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">random_restaurant.py</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Vivian Wang, Ziyu Lin, Joy Li.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.
+    </div>
+  </body>
+</html>
