@@ -16,11 +16,13 @@ typeList = ['American', 'Asian_Fusion', 'Barbeque', 'Breakfast', 'Burger', 'Caju
 
 @app.route('/')
 def hello():
+    """Returns Home Page"""
     return render_template('index.html')
 
 
 @app.route('/random', methods=['POST'])
 def random_restaurant():
+    """Gets user's inputs, checks if the user has entered the location, and redirects based on user's choice of "I am Lucky today" or "List all options"."""
     if request.method == 'POST':
         user_location = request.form['user_location']
         session['user_location'] = user_location
@@ -40,6 +42,7 @@ def random_restaurant():
 
 @app.route('/random_restaurant', methods=['GET', 'POST'])
 def result():
+    """Returns the result page of "I am lucky today" or redirects to error page if there is no restaurant nearby"""
     if request.method == 'GET':
         user_location = session.get('user_location',None)
         distance = session.get('distance',None)
@@ -72,6 +75,7 @@ def result():
 
 @app.route('/list_restaurant', methods=['GET', 'POST'])
 def result2():
+    """Returns the result page of "List all options""""
     if request.method == 'GET':
         user_location = session.get('user_location',None)
         distance = session.get('distance',None)
