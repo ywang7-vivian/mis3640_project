@@ -75,7 +75,7 @@ def filter_distance(rest_list, user, dist=10):
     """
     filter the resturant based on the distance between the resturant and the user. Default distance is 10 km
     rest_dict1: resturant with value equals distance between the resturant and the user
-    rest_dict2: resturant with value equals a list of information
+    rest_dict2: resturant with value equals a list of address, tel_number, and (latitude, longtitude)
     """
     user_location = get_lat_long(user)
     rest_dict1 = dict()
